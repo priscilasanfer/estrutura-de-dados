@@ -49,13 +49,25 @@ public class Lista<T> {
         return this.elementos[posicao];
     }
 
-    public int busca(String elemento) {
+    public int busca(T elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    public boolean contem(T elemento) {
+
+//        int pos = busca(elemento);
+//        if (pos>1){
+//            return true;
+//        }
+//        else {
+//            return false;
+//        }
+        return busca(elemento) > -1;
     }
 
     public int tamanho() {
@@ -81,6 +93,15 @@ public class Lista<T> {
         }
         this.tamanho--;
 
+    }
+
+    public int ultimoIndice(T elemento) {
+        for (int i = this.tamanho - 1; i >= 0; i--) {
+            if (this.elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
