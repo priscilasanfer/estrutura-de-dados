@@ -95,6 +95,16 @@ public class Lista<T> {
 
     }
 
+    public void remove(T elemento){
+        int pos = this.busca(elemento);
+
+        if(pos != -1){
+            remove(pos);
+        }else {
+            throw new IllegalArgumentException("Elemento inválido");
+        }
+    }
+
     public int ultimoIndice(T elemento) {
         for (int i = this.tamanho - 1; i >= 0; i--) {
             if (this.elementos[i].equals(elemento)) {
