@@ -95,14 +95,28 @@ public class Lista<T> {
 
     }
 
-    public void remove(T elemento){
+    public void remove(T elemento) {
         int pos = this.busca(elemento);
 
-        if(pos != -1){
+        if (pos != -1) {
             remove(pos);
-        }else {
+        } else {
             throw new IllegalArgumentException("Elemento inválido");
         }
+    }
+
+    public void limpar() {
+        //Opcao 1
+        //this.elementos = (T[])new Object[this.elementos.length];
+
+        //Opcao 2
+        //this.tamanho =0;
+
+        //Opcao 3
+        for (int i = 0; i < this.tamanho - 1; i++) {
+            elementos[i] = null;
+        }
+        this.tamanho = 0;
     }
 
     public int ultimoIndice(T elemento) {
@@ -114,7 +128,7 @@ public class Lista<T> {
         return -1;
     }
 
-    public T obtem(int posicao){
+    public T obtem(int posicao) {
         return this.busca(posicao);
     }
 
