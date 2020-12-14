@@ -25,4 +25,17 @@ public class Pilha<T> extends EstruturaEstatica {
         return (T) this.elementos[tamanho-1];
     }
 
+    public T desempilha(){
+        if (this.estaVazia() ){
+            return null;
+        }
+
+        /* T elemento = (T) this.elementos[tamanho-1];
+        tamanho--;
+        return elemento; */
+
+        return (T) this.elementos[--tamanho];
+
+    }
+
 }
