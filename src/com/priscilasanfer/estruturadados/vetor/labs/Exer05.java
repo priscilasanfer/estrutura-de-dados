@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class Exer05 {
     public static void main(String[] args) {
-        ArrayList listaa = new ArrayList();
-        listaa.clear();
         Lista<String> lista = new Lista<String>(5);
         lista.adiciona("A");
         lista.adiciona("B");
