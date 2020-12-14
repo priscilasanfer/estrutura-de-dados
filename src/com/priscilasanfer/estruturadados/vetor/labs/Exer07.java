@@ -1,18 +1,17 @@
 package com.priscilasanfer.estruturadados.vetor.labs;
 
-import com.priscilasanfer.estruturadados.vetor.Lista;
 import com.priscilasanfer.estruturadados.vetor.teste.Contato;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Exer06 {
+public class Exer07 extends Exer06 {
     public static void main(String[] args) {
         // Criacao das variaveis
         Scanner scan = new Scanner(System.in);
 
         // Criar vetor com 20 posicoes
-        Lista<Contato> lista = new Lista<Contato>(20);
+        ArrayList<Contato> lista = new ArrayList<Contato>(20);
 
         // Criar e adicionar mais elementos
         criarContatosDinamicamente(5, lista);
@@ -62,31 +61,31 @@ public class Exer06 {
         System.out.println("Usuario digitou 0, programa terminado");
     }
 
-    private static void imprimirVetor(Lista<Contato> lista){
+    private static void imprimirVetor(ArrayList<Contato> lista){
         System.out.println(lista);
     }
 
-    private static void imprimeTamnhoVetor(Lista<Contato> lista){
-        System.out.println("Tamanho do vetor é de: " + lista.tamanho());
+    private static void imprimeTamnhoVetor(ArrayList<Contato> lista){
+        System.out.println("Tamanho do vetor é de: " + lista.size());
     }
 
-    private static void limparVetor(Lista<Contato> lista){
-        lista.limpar();
+    private static void limparVetor(ArrayList<Contato> ArrayList){
+        ArrayList.clear();
         System.out.println("Todos os contatos foram excluidos");
     }
 
-    private static void pesquisarUltimoIndice(Scanner scan, Lista<Contato> lista) {
+    private static void pesquisarUltimoIndice(Scanner scan, ArrayList<Contato> lista) {
         System.out.println("Obtend do ultimo contato do indice, entre com os dados:");
 
         int pos = leInformacaoInt("Entre com a posição", scan);
 
         try {
-            Contato contato = lista.busca(pos);
+            Contato contato = lista.get(pos);
             System.out.println("Contato existe, segue dados:");
             System.out.println(contato);
 
             System.out.println("Fazendo pesquisa do do ultimo contato do indice encontrado:");
-            pos = lista.ultimoIndice(contato);
+            pos = lista.lastIndexOf(contato);
 
             System.out.println("Contato encontrado na posição: " + pos);
         } catch (Exception e) {
@@ -94,15 +93,15 @@ public class Exer06 {
         }
     }
 
-    private static void pesquisarContatoExiste(Scanner scan, Lista<Contato> lista) {
+    private static void pesquisarContatoExiste(Scanner scan, ArrayList<Contato> lista) {
         System.out.println("Verificando se contato existe, entre com os dados:");
 
         int pos = leInformacaoInt("Entre com a posição", scan);
 
         try {
-            Contato contato = lista.busca(pos);
+            Contato contato = lista.get(pos);
 
-            boolean existe = lista.contem(contato);
+            boolean existe = lista.contains(contato);
 
             if (existe) {
                 System.out.println("Contato existe, segue dados:");
@@ -115,7 +114,7 @@ public class Exer06 {
         }
     }
 
-    private static void excluirPorPosição(Scanner scan, Lista<Contato> lista) {
+    private static void excluirPorPosição(Scanner scan, ArrayList<Contato> lista) {
         int pos = leInformacaoInt("Entre com a posição a ser removida", scan);
 
         try {
@@ -126,11 +125,11 @@ public class Exer06 {
         }
     }
 
-    private static void excluirContato(Scanner scan, Lista<Contato> lista) {
+    private static void excluirContato(Scanner scan, ArrayList<Contato> lista) {
         int pos = leInformacaoInt("Entre com a posição a ser removida", scan);
 
         try {
-            Contato contato = lista.busca(pos);
+            Contato contato = lista.get(pos);
             lista.remove(contato);
             System.out.println("Contato excluido");
         } catch (Exception e) {
@@ -138,29 +137,29 @@ public class Exer06 {
         }
     }
 
-    private static void obtemContato(Scanner scan, Lista<Contato> lista) {
+    private static void obtemContato(Scanner scan, ArrayList<Contato> lista) {
         System.out.println("Obtendo conato por posição, entre com os dados:");
 
         int pos = leInformacaoInt("Entre com a posição", scan);
 
         try {
-            Contato contato = lista.busca(pos);
+            Contato contato = lista.get(pos);
             System.out.println("Contato existe, segue dados:");
             System.out.println(contato);
             System.out.println("Fazendo pesquisa  do contato encontrado:");
-            pos = lista.busca(contato);
+            pos = lista.indexOf(contato);
             System.out.println("Contato encontrado na posição: " + pos);
         } catch (Exception e) {
             System.out.println("Posicao invalida!");
         }
     }
 
-    private static void obtemContatoPosicao(Scanner scan, Lista<Contato> lista) {
+    private static void obtemContatoPosicao(Scanner scan, ArrayList<Contato> lista) {
         System.out.println("Obtendo conato por posição, entre com os dados:");
         int pos = leInformacaoInt("Entre com a posição a ser pesquisada", scan);
 
         try {
-            Contato contato = lista.busca(pos);
+            Contato contato = lista.get(pos);
             System.out.println("Contato existe, segue dados:");
             System.out.println(contato);
         } catch (Exception e) {
@@ -168,18 +167,18 @@ public class Exer06 {
         }
     }
 
-    private static void adicionarContatoNoFinal(Scanner scanner, Lista<Contato> lista) {
+    private static void adicionarContatoNoFinal(Scanner scanner, ArrayList<Contato> lista) {
         System.out.println("Criando contato, entre com os dados");
         String nome = leInformacao("Entre com o nome", scanner);
         String telefpne = leInformacao("Entre com o telefone", scanner);
         String email = leInformacao("Entre com o email", scanner);
         Contato contato = new Contato(nome, telefpne, email);
-        lista.adiciona(contato);
+        lista.add(contato);
         System.out.println("Contato adicionado com sucesso");
         System.out.println(contato);
     }
 
-    private static void adicionarContatoPosicao(Scanner scanner, Lista<Contato> lista) {
+    private static void adicionarContatoPosicao(Scanner scanner, ArrayList<Contato> lista) {
         System.out.println("Criando contato, entre com os dados");
         String nome = leInformacao("Entre com o nome", scanner);
         String telefpne = leInformacao("Entre com o telefone", scanner);
@@ -189,7 +188,7 @@ public class Exer06 {
 
         int posicao = leInformacaoInt("Entre a posicao desejada", scanner);
         try {
-            lista.adiciona(posicao, contato);
+            lista.add(posicao, contato);
             System.out.println("Contato adicionado com sucesso");
             System.out.println(contato);
         } catch (Exception e) {
@@ -197,28 +196,7 @@ public class Exer06 {
         }
     }
 
-    protected static String leInformacao(String msg, Scanner scanner) {
-        System.out.println(msg);
-        return scanner.nextLine();
-    }
-
-    protected static int leInformacaoInt(String msg, Scanner scanner) {
-        boolean entradaValida = false;
-        int num = 0;
-        while (!entradaValida) {
-            try {
-                System.out.println(msg);
-                String entrada = scanner.nextLine();
-                num = Integer.parseInt(entrada);
-                entradaValida = true;
-            } catch (Exception e) {
-                System.out.println("Entrada Invalida, digite novamente");
-            }
-        }
-        return num;
-    }
-
-    protected static void criarContatosDinamicamente(int quantidade, Lista<Contato> lista) {
+    private static void criarContatosDinamicamente(int quantidade, ArrayList<Contato> lista) {
         Contato contato;
 
         for (int i = 0; i < quantidade; i++) {
@@ -226,43 +204,8 @@ public class Exer06 {
             contato.setNome("Contato " + i);
             contato.setEmail("contato" + i + "@teste.com");
             contato.setTelefone("1111" + i);
-            lista.adiciona(contato);
+            lista.add(contato);
         }
-    }
-
-    protected static int obterOpcaoMenu(Scanner scanner) {
-
-        boolean entradaValida = false;
-        int opcao = 0;
-        String entrada;
-        while (!entradaValida) {
-            System.out.println("Digite a opção desejada");
-            System.out.println("1: Adiciona contato no final do vetor");
-            System.out.println("2: Adiciona contato em uma posição especifica");
-            System.out.println("3: Obtem contato de uma posicao espefica");
-            System.out.println("4: Consulta contato ");
-            System.out.println("5: Consulta ultimo indice do contato ");
-            System.out.println("6: Verifica se contato existe");
-            System.out.println("7: Remove por posicao");
-            System.out.println("8: Excluir contato");
-            System.out.println("9: Verifica Tamanho vetor");
-            System.out.println("10: Excluir todos os contatos do vetor");
-            System.out.println("11: Imprime vetor");
-            System.out.println("0: Sair");
-
-            try {
-                entrada = scanner.nextLine();
-                opcao = Integer.parseInt(entrada);
-                if (opcao >= 0 && opcao <= 11) {
-                    entradaValida = true;
-                } else {
-                    throw new Exception();
-                }
-            } catch (Exception e) {
-                System.out.println("Entrada invalida, digite novamente\n\n ");
-            }
-        }
-        return opcao;
     }
 
 }
