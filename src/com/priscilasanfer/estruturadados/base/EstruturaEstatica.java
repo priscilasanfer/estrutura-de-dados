@@ -71,6 +71,10 @@ public class EstruturaEstatica<T> {
         return this.tamanho;
     }
 
+    public boolean estaVazio(){
+        return this.tamanho == 0;
+    }
+
     @Override
     public String toString() {
 
