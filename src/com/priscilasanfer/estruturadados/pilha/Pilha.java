@@ -2,7 +2,7 @@ package com.priscilasanfer.estruturadados.pilha;
 
 import com.priscilasanfer.estruturadados.base.EstruturaEstatica;
 
-public class Pilha<T> extends EstruturaEstatica {
+public class Pilha<T> extends EstruturaEstatica<T> {
 
     public Pilha() {
         super();
@@ -34,7 +34,7 @@ public class Pilha<T> extends EstruturaEstatica {
         tamanho--;
         return elemento; */
 
-        return (T) this.elementos[--tamanho];
+        return this.elementos[--tamanho];
 
     }
 
