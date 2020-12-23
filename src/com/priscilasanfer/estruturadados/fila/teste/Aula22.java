@@ -1,6 +1,6 @@
-package com.priscilasanfer.estruturadados.lista.teste;
+package com.priscilasanfer.estruturadados.fila.teste;
 
-import com.priscilasanfer.estruturadados.lista.Fila;
+import com.priscilasanfer.estruturadados.fila.Fila;
 
 public class Aula22 {
     public static void main(String[] args) {

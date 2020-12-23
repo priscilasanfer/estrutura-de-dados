@@ -1,4 +1,4 @@
-package com.priscilasanfer.estruturadados.lista;
+package com.priscilasanfer.estruturadados.fila;
 
 import com.priscilasanfer.estruturadados.base.EstruturaEstatica;
 
